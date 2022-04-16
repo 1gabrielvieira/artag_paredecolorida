@@ -7,7 +7,7 @@ from utils import draw_3d, detector, superimpose as si
 path = glob.glob("imgs\*.jpeg")
 for image in path:
 
-    # Lê a imagem e cria uma cópia cortada (Apenas a região da simulação do Gazebo)  
+    # Lê a imagem e cria uma cópia  
     img = cv2.imread(image)
     copia_img = img.copy()
 
@@ -36,7 +36,7 @@ for image in path:
      perimeter = cv2.arcLength(c,True)
 
      if perimeter > 32 and perimeter < 70:  # Condição criada para otimizar a identificação do ARTAG
-         #cv2.drawContours(copia_cortada, [c], 0, (0,0,255), 3) #Caso queira desenhar os contornos
+         #cv2.drawContours(copia_img, [c], 0, (0,0,255), 3) #Caso queira desenhar os contornos
 
          # Corta o ARTAG
          x,y,w,h = cv2.boundingRect(c)
